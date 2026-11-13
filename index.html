@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#ffc4dc">
+<title>For you 🎀</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=9">
+</head>
+<body class="locked">
+
+<canvas id="fx"></canvas>
+
+<!-- LOCK -->
+<section id="lock">
+  <div class="lock-card bowed">
+    <div class="lock-heart">💗</div>
+    <h1>This little corner of the internet<br>is for one person only.</h1>
+    <form id="lockForm" autocomplete="off">
+      <input id="pw" type="password" placeholder="Password" aria-label="Password" autocapitalize="off" autocorrect="off" spellcheck="false">
+      <button type="submit">Open</button>
+    </form>
+    <p class="hint" id="hint"></p>
+    <p class="err" id="err"></p>
+  </div>
+</section>
+
+<main id="app" hidden>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <canvas id="stars"></canvas>
+    <div class="intro-inner">
+      <p class="hb" id="hb"></p>
+      <h1 class="name" id="herName"></h1>
+      <p class="nick" id="nickEn"></p>
+      <div class="stage">
+        <div class="mascot" id="mascot"></div>
+        <div class="cake" id="cake" role="button" tabindex="0" aria-label="Blow out the candles">
+          <div class="candles">
+            <i class="candle"><b class="flame"></b></i><i class="candle"><b class="flame"></b></i><i class="candle"><b class="flame"></b></i>
+          </div>
+          <div class="tier t2"></div>
+          <div class="tier t1"></div>
+          <div class="plate"></div>
+        </div>
+        <div class="wind" id="wind"><i></i><i></i><i></i></div>
+      </div>
+      <button class="blow-pop" id="blowBtn">🌬️ Blow the candles!</button>
+      <p class="tap" id="tapMsg"></p>
+      <p class="scroll-cue" id="scrollCue">Now scroll down, our story is waiting<span>↓</span></p>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section id="journey">
+    <div class="road"><div class="road-fill"></div><div class="traveler"></div></div>
+    <header class="j-head reveal">
+      <p class="eyebrow">Our journey</p>
+      <h2>From the very first selfie<br>to right now</h2>
+    </header>
+    <div id="years"></div>
+  </section>
+
+  <!-- GAME CTA -->
+  <section id="play">
+    <div class="play-card reveal">
+      <p class="eyebrow">A little game for you</p>
+      <h2>Walk our memory road</h2>
+      <div class="play-duo"><div id="duoSadi"></div><span class="heart">💗</span><div id="duoHim"></div></div>
+      <p>Use the joystick to walk past every year of us. Someone is waiting for you at the end of the road.</p>
+      <button id="playBtn" class="btn">Start walking 🕹️</button>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <header class="reveal">
+      <p class="eyebrow">Every moment</p>
+      <h2>Our gallery</h2>
+    </header>
+    <div class="chips" id="chips"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- ENDING -->
+  <section id="ending">
+    <header class="reveal">
+      <p class="eyebrow">And our story continues…</p>
+      <h2>The chapters still to come</h2>
+    </header>
+    <div class="future" id="future"></div>
+    <div class="letter reveal" id="letter"></div>
+    <div class="yellow reveal" id="yellow"></div>
+    <div class="finale reveal">
+      <div class="fin-duo"><div id="finSadi"></div><span class="heart">💗</span><div id="finHim"></div></div>
+      <p class="eyebrow">With all my love</p>
+      <h2 class="finale-title" id="finaleTitle"></h2>
+      <button class="btn ghost" id="againBtn">Make another wish 🎉</button>
+    </div>
+  </section>
+</main>
+
+<!-- GAME OVERLAY -->
+<div id="game" hidden>
+  <canvas id="world"></canvas>
+  <button class="g-close" id="gClose" aria-label="Close game">✕</button>
+  <div class="g-hint" id="gHint">Drag the joystick to walk 🎀</div>
+  <div class="g-progress" id="gProg"></div>
+  <div class="joy" id="joy"><div class="knob" id="knob"></div></div>
+  <div class="g-pop" id="gPop" hidden>
+    <div class="g-pop-card bowed">
+      <p class="eyebrow" id="gpYear"></p>
+      <h3 id="gpTitle"></h3>
+      <p id="gpText"></p>
+      <div class="g-pop-photos" id="gpPhotos"></div>
+      <button class="btn" id="gpBtn">Keep walking</button>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lb" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-nav prev" id="lbPrev" aria-label="Previous">‹</button>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" alt=""></div>
+  <button class="lb-nav next" id="lbNext" aria-label="Next">›</button>
+  <p class="lb-cap" id="lbCap"></p>
+</div>
+
+<button id="soundBtn" class="sound" hidden aria-label="Sound on or off">🔊</button>
+<button id="musicBtn" class="music" hidden aria-label="Music">♪</button>
+
+<script src="sfx.js?v=9"></script>
+<script src="app.js?v=9"></script>
+<script src="mascot.js?v=9"></script>
+<script src="game.js?v=9"></script>
+</body>
+</html>
